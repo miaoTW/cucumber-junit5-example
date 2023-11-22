@@ -1,6 +1,7 @@
 plugins {
     // REQUIRED: We are writing tests in Java, change this only if you want to use another language
     java
+    id("io.freefair.lombok") version "8.4"
 }
 
 // REQUIRED: Declare the dependencies that you want to use in your tests. We are using dynamic version ranges here
@@ -22,6 +23,23 @@ dependencies {
     testImplementation("io.cucumber:cucumber-picocontainer:latest.release") {
         because("we want to use dependency injection in our Cucumber tests - remove this if you don't")
     }
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+	testImplementation("org.mockito:mockito-core:5.7.0")
+	// https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
+	testImplementation("org.mockito:mockito-junit-jupiter:5.7.0")
+	
+    
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+	implementation("org.slf4j:slf4j-api:2.0.9")
+    
+	// https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+	testImplementation("ch.qos.logback:logback-classic:1.4.11")
+
+	testCompileOnly("org.projectlombok:lombok:1.18.8")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.8")
+    compileOnly("org.projectlombok:lombok:1.18.8")
+	annotationProcessor("org.projectlombok:lombok:1.18.8")
+
 }
 
 tasks {

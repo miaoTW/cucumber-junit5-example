@@ -1,6 +1,6 @@
 Feature: Your First Feature
 
-  @first
+  @first @disabled
   Scenario: Some title for a single test scenario
     Given something exists
     When something is executed

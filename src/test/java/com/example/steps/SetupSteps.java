@@ -1,27 +1,37 @@
 package com.example.steps;
 
+import org.mockito.Mock;
+
+import com.example.repository.StationRepository;
+import com.example.service.StationService;
 import com.example.state.ScenarioState;
+
 import io.cucumber.java.en.Given;
 
 /**
- * Setup steps that initialize the currently active example/scenario state to a certain value.
+ * Setup steps that initialize the currently active example/scenario state to a
+ * certain value.
  */
 public class SetupSteps {
 
-  private final ScenarioState state;
+	StationService service;
+	@Mock
+	StationRepository repo;
 
-  public SetupSteps(final ScenarioState state) {
-    this.state = state;
-  }
+	private final ScenarioState state;
 
-  @Given("something exists")
-  public void something() {
-    state.setUserInput("123");
-  }
+	public SetupSteps(final ScenarioState state) {
+		this.state = state;
+	}
 
-  @Given("something else exists")
-  public void somethingElse() {
-    state.setUserInput("abc");
-  }
+	@Given("something exists")
+	public void something() {
+		state.setUserInput("123");
+	}
+
+	@Given("something else exists")
+	public void somethingElse() {
+		state.setUserInput("abc");
+	}
 
 }
